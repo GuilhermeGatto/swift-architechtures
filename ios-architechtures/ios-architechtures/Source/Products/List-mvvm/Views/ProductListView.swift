@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol ProductListViewDelegate: AnyObject {
+    func didEditSearch(with text: String)
+}
+
 class ProductListView: UIView {
+    // MARK: Components Properties
     
     var search: UITextField = {
         let textfield = UITextField()
@@ -30,14 +35,28 @@ class ProductListView: UIView {
         return table
     }()
     
+    // MARK: - Init Varibles
+    weak var delegate: ProductListViewDelegate?
+    
     init() {
         super.init(frame: .zero)
-        setupViewCode()
         backgroundColor = .white
+        setupViewCode()
+        addSearchListener()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Handle textfield search for edit
+    
+    private func addSearchListener() {
+        search.addTarget(self, action: #selector(editSearch), for: .editingChanged)
+    }
+    
+    @objc private func editSearch() {
+        delegate?.didEditSearch(with: search.text ?? "")
     }
     
 }
