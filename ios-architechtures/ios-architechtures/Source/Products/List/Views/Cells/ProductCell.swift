@@ -36,7 +36,6 @@ class ProductCell: UITableViewCell {
     
     var name: UILabel = {
         let label = UILabel()
-        label.text = "p1"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,7 +43,6 @@ class ProductCell: UITableViewCell {
     
     var price: UILabel = {
         let label = UILabel()
-        label.text = "R$ 12,90"
         label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,8 +57,23 @@ class ProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
+    func configure(with model: ProductModel) {
 
+        name.text = model.title
+        price.text = "R$ \(model.price)"
+        ImageDownloader.download(from: URL(string: model.image)!) { image in
+            DispatchQueue.main.async {
+                self.image.image = image
+            }
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        image.image = nil
+    }
+   
+}
 
 extension ProductCell: ViewCodeProtocol {
     func setupSubViews() {

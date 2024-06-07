@@ -20,36 +20,37 @@ class ProductDetailView: UIView {
     
     let image: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .black
+        view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    
     var name: UILabel = {
         let label = UILabel()
-        label.text = "p1"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    
-    var price: UILabel = {
-        let label = UILabel()
-        label.text = "R$ 12,90"
-        label.font = .systemFont(ofSize: 20)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.tintColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var desc: UILabel = {
         let label = UILabel()
-        label.text = "bla bla bla bla bla bla bla"
-        label.font = .systemFont(ofSize: 20)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.tintColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    var price: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 50, weight: .black)
+        label.tintColor = .green
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     init() {
         super.init(frame: .zero)
         setupViewCode()
@@ -60,26 +61,45 @@ class ProductDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(with product: ProductModel) {
+        name.text = product.title
+        price.text = "R$ \(product.price)"
+        desc.text = product.description
+        ImageDownloader.download(from: URL(string: product.image)!) { image in
+            DispatchQueue.main.async {
+                self.image.image = image
+            }
+            
+        }
+    }
+
 }
 
 extension ProductDetailView: ViewCodeProtocol {
     func setupSubViews() {
-        addSubview(container)
-        container.addArrangedSubview(image)
-        container.addArrangedSubview(name)
-        container.addArrangedSubview(desc)
-        container.addArrangedSubview(price)
+        addSubview(image)
+        addSubview(name)
+        addSubview(desc)
+        addSubview(price)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            
+            image.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            image.centerXAnchor.constraint(equalTo: centerXAnchor),
             image.heightAnchor.constraint(equalToConstant: 300),
-            image.widthAnchor.constraint(equalToConstant: 300)
-
+            image.widthAnchor.constraint(equalToConstant: 300),
+            
+            name.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 16),
+            name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            
+            desc.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 8),
+            desc.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            desc.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+        
+            price.topAnchor.constraint(equalTo: desc.bottomAnchor, constant: 24),
+            price.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 

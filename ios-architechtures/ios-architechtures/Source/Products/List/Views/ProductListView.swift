@@ -9,13 +9,19 @@ import UIKit
 
 class ProductListView: UIView {
     
-    var title: UILabel = {
-        let label = UILabel()
-        label.text = "Products"
-        label.font = .systemFont(ofSize: 50)
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
+    var search: UITextField = {
+        let textfield = UITextField()
+        textfield.placeholder = "buscar"
+        textfield.font = .systemFont(ofSize: 15)
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        
+        textfield.layer.borderColor = UIColor.black.cgColor
+        textfield.layer.borderWidth = 1
+        textfield.layer.cornerRadius = 8
+        textfield.leftView = UIView(frame: .init(x: 0, y: 0, width: 8, height: 0))
+        textfield.leftViewMode = .always
+        textfield.clipsToBounds = true
+        return textfield
     }()
     
     var tableView: UITableView = {
@@ -38,17 +44,17 @@ class ProductListView: UIView {
 
 extension ProductListView: ViewCodeProtocol {
     func setupSubViews() {
-        addSubview(title)
+        addSubview(search)
         addSubview(tableView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            title.heightAnchor.constraint(equalToConstant: 50),
-            tableView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 16),
+            search.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            search.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            search.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            search.heightAnchor.constraint(equalToConstant: 50),
+            tableView.topAnchor.constraint(equalTo: search.bottomAnchor, constant: 16),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

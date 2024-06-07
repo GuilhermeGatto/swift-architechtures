@@ -19,6 +19,8 @@
 		1D9F938C2C128A5000E1E5D5 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F938B2C128A5000E1E5D5 /* ViewCodeProtocol.swift */; };
 		1D9F93902C128DEF00E1E5D5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F938F2C128DEF00E1E5D5 /* ProductCell.swift */; };
 		1D9F93922C1295E200E1E5D5 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F93912C1295E200E1E5D5 /* ProductDetailView.swift */; };
+		1D9F93942C13354700E1E5D5 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F93932C13354700E1E5D5 /* ImageDownloader.swift */; };
+		1DC5D7EF2C1339D400F16189 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5D7EE2C1339D400F16189 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		1D9F938B2C128A5000E1E5D5 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		1D9F938F2C128DEF00E1E5D5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		1D9F93912C1295E200E1E5D5 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		1D9F93932C13354700E1E5D5 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		1DC5D7EE2C1339D400F16189 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				1D9F93892C128A3B00E1E5D5 /* Protocols */,
+				1D9F93932C13354700E1E5D5 /* ImageDownloader.swift */,
+				1DC5D7EE2C1339D400F16189 /* ImageCache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -241,6 +247,8 @@
 				1D9F93782C12807D00E1E5D5 /* AppDelegate.swift in Sources */,
 				1D9F93872C128A1300E1E5D5 /* ProductListView.swift in Sources */,
 				1D9F93732C127EE000E1E5D5 /* ProductService.swift in Sources */,
+				1DC5D7EF2C1339D400F16189 /* ImageCache.swift in Sources */,
+				1D9F93942C13354700E1E5D5 /* ImageDownloader.swift in Sources */,
 				1D9F93792C12807D00E1E5D5 /* SceneDelegate.swift in Sources */,
 				1D9F93902C128DEF00E1E5D5 /* ProductCell.swift in Sources */,
 				1D9F93812C12862E00E1E5D5 /* ProductModel.swift in Sources */,
