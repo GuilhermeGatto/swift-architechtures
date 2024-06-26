@@ -22,6 +22,7 @@
 		1D9F93942C13354700E1E5D5 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F93932C13354700E1E5D5 /* ImageDownloader.swift */; };
 		1DC5D7EF2C1339D400F16189 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5D7EE2C1339D400F16189 /* ImageCache.swift */; };
 		1DC5D7F12C137E0600F16189 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5D7F02C137E0600F16189 /* ProductListViewModel.swift */; };
+		23A81D692C2CCF5300100A87 /* ProducListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A81D682C2CCF5300100A87 /* ProducListCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1D9F93932C13354700E1E5D5 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		1DC5D7EE2C1339D400F16189 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		1DC5D7F02C137E0600F16189 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		23A81D682C2CCF5300100A87 /* ProducListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducListCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				1DC5D7F02C137E0600F16189 /* ProductListViewModel.swift */,
 				1D9F938D2C128B4200E1E5D5 /* Views */,
 				1D9F93742C12800100E1E5D5 /* ProductListViewController.swift */,
+				23A81D682C2CCF5300100A87 /* ProducListCoordinator.swift */,
 			);
 			path = "List-mvvm";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				1D9F938C2C128A5000E1E5D5 /* ViewCodeProtocol.swift in Sources */,
 				1D9F93782C12807D00E1E5D5 /* AppDelegate.swift in Sources */,
 				1D9F93872C128A1300E1E5D5 /* ProductListView.swift in Sources */,
+				23A81D692C2CCF5300100A87 /* ProducListCoordinator.swift in Sources */,
 				1D9F93732C127EE000E1E5D5 /* ProductService.swift in Sources */,
 				1DC5D7EF2C1339D400F16189 /* ImageCache.swift in Sources */,
 				1DC5D7F12C137E0600F16189 /* ProductListViewModel.swift in Sources */,

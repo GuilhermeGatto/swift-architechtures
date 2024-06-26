@@ -20,12 +20,20 @@ class ProductListViewController: UIViewController {
 
     // MARK: - Controller Properties
     private var list =  [ProductModel]()
+    var router: ProducListCoordinatorDelegate?
     
-    private lazy var viewModel: ProductListViewModel = {
-        let viewModel = ProductListViewModel()
-        viewModel.delegate = self
-        return viewModel
-    }()
+    // MARK: - Initializer
+    let viewModel: ProductListViewModel
+    
+    init(viewModel: ProductListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Controller Lifecycle
     override func viewDidLoad() {
@@ -55,8 +63,7 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ProductDetailViewController(id: list[indexPath.row].id),
-                                                 animated: true)
+        router?.goToDetail(for: list[indexPath.row].id)
     }
 
 }
